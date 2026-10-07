@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog | ADIRONDACK</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="blog">
+<main>
+<div class="ph dark" data-bg="blog:3"><div><h1>Unser Blog</h1><p>Inspiration, Tipps und Neuigkeiten rund um Gartenmöbel, Design und Nachhaltigkeit.</p></div></div>
+<section class="sec"><div class="cards" id="posts"></div></section>
+</main>
+<script src="assets/common.js"></script>
+<script>
+const POSTS=[
+ ['02. Oktober 2026','Geschichte','Woher der Adirondack-Stuhl kommt','1903 baute Thomas Lee in Westport im US-Bundesstaat New York den ersten Stuhl dieser Form, um in den Adirondack Mountains bequem zu sitzen.','Er schnitt ihn aus einfachen Brettern, mit schräger Rückenlehne und breiten Armlehnen für ein Getränk. Harry Bunnell meldete 1905 ein Patent auf eine ähnliche Konstruktion an. Seitdem hat sich die Grundform kaum verändert, weil sie funktioniert.'],
+ ['18. September 2026','Material','Nachhaltiges Holz: worauf Sie achten sollten','Ein Siegel wie FSC zeigt, dass das Holz aus verantwortungsvoll bewirtschafteten Wäldern stammt.','Fragen Sie nach der Herkunft, nach dem Trocknungsverfahren und nach der Oberfläche. Wasserbasierte Lacke und geölte Hölzer sind für Mensch und Umwelt die bessere Wahl, und gut gepflegtes Massivholz hält Jahrzehnte.'],
+ ['29. August 2026','Trends','Gartentrends 2026: Natürlichkeit trifft Komfort','Ruhige Farben, natürliche Materialien und weiche Textilien prägen die Terrassen dieses Jahres.','Salbei, Sand und Marineblau ersetzen grelle Töne. Dazu kommen Leinenkissen, geflochtene Beistelltische und Licht in warmen Farben. Ein einzelner, gut gebauter Stuhl wirkt dabei stärker als ein ganzes Set.'],
+ ['14. August 2026','Pflege','So bleibt Ihr Adirondack 20 Jahre schön','Zweimal im Jahr reinigen und einmal nachbehandeln reicht in den meisten Fällen.','Reinigen Sie mit lauwarmem Wasser und mildem Reiniger, nie mit dem Hochdruckreiniger. Geöltes Holz bekommt im Frühjahr eine dünne Schicht Pflegeöl, lackierte Stühle nur bei Bedarf eine Politur. Im Winter stehen sie trocken und luftig.'],
+ ['30. Juli 2026','Design','Die richtige Farbe für Ihren Garten','Dunkle Töne wirken ruhig, helle Töne lassen kleine Terrassen größer erscheinen.','Orientieren Sie sich an Hauswand und Bepflanzung. Marineblau und Anthrazit passen zu fast allem, Rot und Orange setzen einen bewussten Akzent. Im Konfigurator können Sie jedes Bauteil einzeln färben und die Wirkung sofort sehen.'],
+ ['09. Juli 2026','Handwerk','Ein Tag in der Manufaktur','Von der rohen Latte bis zum fertigen Stuhl vergehen bei uns mehrere Wochen.','Das Holz trocknet, wird gehobelt, gefräst und mehrfach geschliffen. Danach folgen Verleimung, Lack oder Öl und eine Endkontrolle von Hand. Erst wenn jede Fuge stimmt, verlässt der Stuhl die Werkstatt.']
+];
+$('#posts').innerHTML=POSTS.map(([d,t,h,e,f],i)=>`<article class="po"><small>${d}</small><span class="tg">${t}</span><h3>${h}</h3><p>${e}</p><p class="full">${f}</p><button data-t="${i}" aria-expanded="false">Weiterlesen</button></article>`).join('');
+$('#posts').onclick=e=>{const b=e.target.closest('[data-t]');if(!b)return;const a=b.closest('.po'),o=a.classList.toggle('open');b.textContent=o?'Weniger anzeigen':'Weiterlesen';b.setAttribute('aria-expanded',o)};
+</script>
+</body></html>

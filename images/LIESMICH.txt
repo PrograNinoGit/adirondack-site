@@ -1,0 +1,4 @@
+Diese Fotos sind bereits eingebaut (aus deiner Collage zugeschnitten):
+hero, about, blog, cta, story, nachhaltigkeit, qualitaet, design, f1, f2, f3, kontakt (weichgezeichnet), gal-1 bis gal-4.
+Zum Austauschen einfach eine Datei mit gleichem Namen ueberschreiben (jpg, am besten 1920 px breit).
+Optional: p-signal.jpg, p-nordic.jpg, p-navy.jpg, p-duo.jpg, p-teak.jpg, p-sig.jpg (900x800) ersetzen die 3D-Vorschau der Shop-Karten.

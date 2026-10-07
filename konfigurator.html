@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Configurator | ADIRONDACK</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="konfigurator">
+<main class="cf">
+  <div class="stage" id="stage"><div class="hint">Ziehen zum Drehen · Mausrad zum Zoomen</div></div>
+  <div>
+    <div class="pn"><h3>Ihr Adirondack</h3>
+      <label>Alle Teile in einer Farbe</label><div class="sw" id="all"></div>
+      <label style="margin-top:16px">Material</label><div class="pills" id="mat"></div>
+      <label>Oberfläche</label><div class="pills" id="fin"></div>
+      <label>Sitzkissen</label><div class="pills" id="cu"></div>
+      <div class="tot"><span>Preis inkl. MwSt.</span><b id="price"></b></div>
+      <button class="btn" id="add" style="width:100%">In den Warenkorb</button>
+    </div>
+    <div id="parts"></div>
+  </div>
+</main>
+<script src="assets/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/chair3d.js"></script>
+<script>
+const q=new URLSearchParams(location.search).get('p');
+const cfg=clone((PRODUCTS.find(p=>p.id===q)||PRODUCTS[0]).cfg);
+const PARTS=[['s','Sitzfläche'],['b','Rückenlehne'],['a','Armlehnen'],['f','Gestell']];
+const SW=['#e8301f','#f5f1e8','#1f3a5f','#2f6b4a','#2b2d33','#f08a24','#c08a4a','#7d9bb8','#d9b8c4','#f2c230'];
+const CH_=[['h','Farbton',360],['s','Sättigung',100],['l','Helligkeit',100]];
+$('#parts').innerHTML=PARTS.map(([k,t])=>`<div class="pn"><h3><i id="i-${k}"></i>${t}</h3>${CH_.map(([c,n,m])=>`<label>${n}</label><input type="range" class="${c==='h'?'hue':''}" data-p="${k}" data-c="${c}" min="0" max="${m}" aria-label="${t} ${n}">`).join('')}</div>`).join('');
+$('#all').innerHTML=SW.map(c=>`<button style="background:${c}" data-all="${c}" aria-label="Alle Teile ${c}"></button>`).join('');
+const pills=(arr,key,sel)=>arr.map(([v,t])=>`<button class="pill ${sel===v?'on':''}" data-${key}="${v}">${t}</button>`).join('');
+function sync(sliders){
+  if(sliders)PARTS.forEach(([k])=>{const o={};new THREE.Color(cfg.c[k]).getHSL(o);
+    $(`[data-p=${k}][data-c=h]`).value=o.h*360;$(`[data-p=${k}][data-c=s]`).value=o.s*100;$(`[data-p=${k}][data-c=l]`).value=o.l*100});
+  PARTS.forEach(([k])=>$('#i-'+k).style.background=cfg.c[k]);
+  $('#mat').innerHTML=pills(MAT.map((m,i)=>[i,m[0]+(m[1]?` (+${eur(m[1])})`:'')]),'mat',cfg.m);
+  $('#fin').innerHTML=pills([[0,'Matt'],[1,`Glänzend (+${eur(GLOSS)})`]],'fin',cfg.g);
+  $('#cu').innerHTML=pills([[0,'Ohne'],[1,`Mit Kissen (+${eur(CUSH)})`]],'cu',cfg.k);
+  $('#price').textContent=eur(calc(cfg));CH.paint(cfg);
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.all){cfg.c=one(b.dataset.all);sync(1)}
+  if(b.dataset.mat!==undefined){cfg.m=+b.dataset.mat;sync()}
+  if(b.dataset.fin!==undefined){cfg.g=+b.dataset.fin;sync()}
+  if(b.dataset.cu!==undefined){cfg.k=+b.dataset.cu;sync()}
+});
+document.addEventListener('input',e=>{
+  const k=e.target.dataset.p;if(!k)return;
+  const v=c=>+$(`[data-p=${k}][data-c=${c}]`).value;
+  cfg.c[k]='#'+new THREE.Color().setHSL(v('h')/360,v('s')/100,v('l')/100).getHexString();sync();
+});
+$('#add').onclick=()=>addItem('custom-'+JSON.stringify(cfg),'Individueller Adirondack',clone(cfg),CH.snap(cfg,.6));
+CH.live($('#stage'),cfg);sync(1);
+</script>
+</body></html>

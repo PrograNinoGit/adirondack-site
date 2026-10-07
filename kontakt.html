@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kontakt | ADIRONDACK</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="kontakt">
+<main class="ct bg" data-bg="kontakt:2">
+  <div class="in">
+    <div class="info">
+      <h1>Kontaktieren Sie uns</h1>
+      <p>Fragen zu Material, Lieferzeit oder einer Sonderanfertigung? Schreiben Sie uns, wir antworten in der Regel innerhalb eines Werktags.</p>
+      <p><b>Manufaktur</b>Musterstraße 12, 50667 Köln</p>
+      <p><b>E-Mail</b>hallo@adirondack-manufaktur.example</p>
+      <p><b>Telefon</b>+49 221 000 000 · Mo bis Fr, 9 bis 17 Uhr</p>
+    </div>
+    <form class="fm" id="fm" novalidate>
+      <input id="n" placeholder="Ihr Name" autocomplete="name" aria-label="Ihr Name">
+      <input id="e" type="email" placeholder="Ihre E-Mail-Adresse" autocomplete="email" aria-label="Ihre E-Mail-Adresse">
+      <input id="s" placeholder="Betreff" aria-label="Betreff">
+      <textarea id="m" placeholder="Ihre Nachricht" aria-label="Ihre Nachricht"></textarea>
+      <div class="err" id="err" role="alert"></div>
+      <button class="btn" type="submit">Nachricht senden</button>
+    </form>
+  </div>
+</main>
+<script src="assets/common.js"></script>
+<script>
+$('#fm').onsubmit=e=>{
+  e.preventDefault();
+  const n=$('#n').value.trim(),m=$('#e').value.trim(),t=$('#m').value.trim();
+  const err=!n?'Bitte geben Sie Ihren Namen ein.':!/^\S+@\S+\.\S+$/.test(m)?'Bitte geben Sie eine gültige E-Mail-Adresse ein.':t.length<10?'Bitte schreiben Sie uns mindestens ein paar Worte.':'';
+  $('#err').textContent=err;
+  if(!err)$('#fm').innerHTML=`<div class="ok"><h3>Danke, ${n.split(' ')[0]}!</h3><p>Ihre Nachricht ist angekommen. Dies ist ein Demo-Formular, es wurde nichts verschickt.</p></div>`;
+};
+</script>
+</body></html>
