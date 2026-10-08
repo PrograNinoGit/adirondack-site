@@ -40,8 +40,8 @@ const PRODUCTS=[
 /* Header & Footer */
 const PAGE=document.body.dataset.page;
 const NAV=[['index','Startseite'],['ueber-uns','Über uns'],['shop','Shop'],['konfigurator','Configurator'],['blog','Blog'],['kontakt','Kontakt']];
-document.body.insertAdjacentHTML('afterbegin',`<header><div class="nav"><a class="logo" href="index.html">Adiron<span>dack</span></a><nav>${NAV.map(([f,t])=>`<a href="${f}.html" class="${PAGE===f?'on':''}">${t}</a>`).join('')}</nav><a class="ic" href="warenkorb.html" aria-label="Warenkorb">🛒<b id="cnt">0</b></a></div></header>`);
-document.body.insertAdjacentHTML('beforeend',`<footer><p style="margin-bottom:10px">${NAV.map(([f,t])=>`<a href="${f}.html">${t}</a>`).join('')}<a href="warenkorb.html">Warenkorb</a></p>© 2026 ADIRONDACK Outdoor Luxury · Demo-Shop, keine echten Bestellungen</footer><div class="toast" id="toast"></div>`);
+document.body.insertAdjacentHTML('afterbegin',`<header><div class="nav"><a class="logo" href="index.html">Adiron<span>duck</span></a><nav>${NAV.map(([f,t])=>`<a href="${f}.html" class="${PAGE===f?'on':''}">${t}</a>`).join('')}</nav><a class="ic" href="warenkorb.html" aria-label="Warenkorb">🛒<b id="cnt">0</b></a></div></header>`);
+document.body.insertAdjacentHTML('beforeend',`<footer><p style="margin-bottom:10px">${NAV.map(([f,t])=>`<a href="${f}.html">${t}</a>`).join('')}<a href="warenkorb.html">Warenkorb</a></p>© 2026 ADIRONDUCK Outdoor Luxury · Demo-Shop, keine echten Bestellungen</footer><div class="toast" id="toast"></div>`);
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2600)}
 
 /* Warenkorb (localStorage, gemeinsam für alle Seiten) */
