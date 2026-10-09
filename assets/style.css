@@ -109,30 +109,34 @@ footer a{margin:0 12px;color:#fff}
 .mos .w{grid-column:span 2}.mos .t{grid-row:span 2}
 @media(max-width:900px){.mos{grid-template-columns:1fr 1fr;grid-auto-rows:190px}.mos .w{grid-column:span 2}.mos .t{grid-row:span 1}}
 /* ==========================================
-   HOVER-EFFEKTE & ABGERUNDETE KARTEN
+   KARTEN & HOVER
    ========================================== */
 
-/* Abgerundete Ecken & weicher Schatten für Karten */
-article, .card {
-  border-radius: 16px !important;
-  overflow: hidden !important; /* Schneidet das Bild oben an den runden Ecken ab */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+/* Feature-Karten (Startseite + Über uns): echte Karte mit Innenabstand */
+.fc{
+  background:#fff;
+  border-radius:26px;
+  padding:14px 14px 24px;
+  box-shadow:0 6px 20px rgba(58,34,18,.08);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
+.fc .im{border-radius:18px;margin-bottom:18px}   /* Bild bleibt komplett sichtbar */
+.fc h3,.fc p{padding:0 10px}
 
-/* Hover-Effekt: Karte hebt sich sanft an */
-article:hover, .card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
-}
+/* Produktkarten */
+.pc{transition:transform .3s ease, box-shadow .3s ease}
 
-/* Interaktiver Effekt für Buttons */
-button, .btn {
-  transition: all 0.3s ease !important;
-}
+/* Buttons */
+.btn{transition:background .3s ease, transform .3s ease, box-shadow .3s ease}
 
-button:hover, .btn:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  cursor: pointer !important;
+/* Hover nur auf Geräten mit Maus (kein „klebender“ Hover auf Touch) */
+@media (hover:hover){
+  .fc:hover,.pc:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 32px rgba(58,34,18,.16);
+  }
+  .btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 14px rgba(58,34,18,.2);
+  }
 }
