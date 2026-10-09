@@ -66,3 +66,42 @@ document.addEventListener('click',e=>{
   addItem(p.id,p.name,clone(p.cfg),a.closest('.pc').querySelector('img').src);
 });
 applyBg();
+/* =====================================================
+   LOGO-ICON + FAVICON AUF ALLEN SEITEN
+   ===================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* Favicon, falls die Seite keins hat */
+  if (!document.querySelector('link[rel="icon"]')) {
+    var svg = document.createElement('link');
+    svg.rel = 'icon';
+    svg.type = 'image/svg+xml';
+    svg.href = 'assets/favicon.svg';
+    document.head.appendChild(svg);
+
+    var png = document.createElement('link');
+    png.rel = 'icon';
+    png.type = 'image/png';
+    png.sizes = '32x32';
+    png.href = 'assets/favicon-32.png';
+    document.head.appendChild(png);
+  }
+
+  /* Logo-Icon links vor den Namen setzen */
+  var logo = document.querySelector('.logo');
+  if (!logo || logo.querySelector('.logo-icon')) return;
+
+  var text = document.createElement('span');
+  text.className = 'lt';
+  while (logo.firstChild) text.appendChild(logo.firstChild);
+
+  var icon = new Image();
+  icon.src = 'assets/logo-icon.svg';
+  icon.alt = '';
+  icon.width = 46;
+  icon.height = 46;
+  icon.className = 'logo-icon';
+
+  logo.appendChild(icon);
+  logo.appendChild(text);
+});

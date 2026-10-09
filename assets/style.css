@@ -8,7 +8,11 @@ h1,h2,h3{font-weight:700;line-height:1.12;letter-spacing:-.02em}
 .bg{background-size:cover;background-position:center;background-color:#d9b48c}
 header{position:sticky;top:0;z-index:30;background:rgba(251,245,236,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{max-width:1320px;margin:auto;padding:12px 32px;display:flex;align-items:center;gap:16px}
-.logo{font:800 22px/.95 Poppins;text-transform:uppercase}.logo span{display:block;padding-left:28px}
+/* Logo: Icon + Name */
+.logo{display:flex;align-items:center;gap:12px;font:800 22px/.95 Poppins;text-transform:uppercase}
+.logo .logo-icon{width:46px;height:46px;flex-shrink:0}
+.logo .lt{display:block;padding-left:0}
+.logo .lt span,.logo>span:not(.lt){display:block;padding-left:28px}
 nav{display:flex;gap:4px;margin:0 auto}
 nav a{padding:10px 22px;border-radius:30px;font-size:15px;color:#4a3322}
 nav a:hover{background:var(--soft)}nav a.on{background:#f1dfc6;font-weight:500}
