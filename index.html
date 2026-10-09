@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>ADIRONDUCK | Custom Made Outdoor Luxury</title>
+  <meta name="description" content="ADIRONDUCK: Handgefertigte Adirondack-Stühle nach Maß. Farbe, Material und Oberfläche im 3D-Konfigurator selbst gestalten.">
+  <meta name="theme-color" content="#3a2212">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+
+  <!-- Vorschau beim Teilen -->
+  <meta property="og:title" content="ADIRONDUCK | Custom Made Outdoor Luxury">
+  <meta property="og:description" content="Handgefertigte Adirondack-Stühle nach Maß.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo-icon-512.png">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
@@ -17,6 +29,34 @@
   <style>
 
     /* =====================================================
+       LOGO: Icon neben dem Namen
+       (.logo span aus style.css wird für .lt überschrieben)
+       ===================================================== */
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo .logo-icon {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+    }
+
+    .logo .lt {
+      display: block;
+      padding-left: 0;
+    }
+
+    .logo .lt span {
+      display: block;
+      padding-left: 28px;
+    }
+
+
+    /* =====================================================
        HERO VIDEO ALS HINTERGRUND
        ===================================================== */
 
@@ -25,20 +65,11 @@
       overflow: hidden !important;
     }
 
-
-    /*
-       Video liegt ganz hinten im Hero.
-       Dein bisheriger Hero-Hintergrund wird dadurch
-       vom Video überdeckt.
-    */
-
+    /* Video liegt ganz hinten im Hero und überdeckt den bisherigen Hintergrund. */
     .hero-video {
       position: absolute !important;
 
-      /*
-        Etwas größer als der Hero.
-        Dadurch werden die Außenbereiche abgeschnitten.
-      */
+      /* Etwas größer als der Hero, die Außenbereiche werden abgeschnitten. */
       width: 115% !important;
       height: 115% !important;
 
@@ -49,18 +80,12 @@
 
       object-fit: cover !important;
 
-      /*
-        Leichte Verschiebung nach oben.
-        Dadurch wird der untere Bereich des Videos
-        stärker abgeschnitten, wo das Luna-AI-Watermark
-        sitzt.
-      */
+      /* Verschiebung nach oben: der untere Bereich mit dem
+         Luna-AI-Watermark wird stärker abgeschnitten. */
       object-position: center 42% !important;
 
       z-index: 0 !important;
-
       display: block !important;
-
       pointer-events: none !important;
     }
 
@@ -71,16 +96,12 @@
 
     .hero-video-overlay {
       position: absolute !important;
-
       inset: 0 !important;
 
-      /*
-        Nur leicht abdunkeln, damit der Text gut lesbar bleibt.
-      */
+      /* Nur leicht abdunkeln, damit der Text gut lesbar bleibt. */
       background: rgba(0, 0, 0, 0.16) !important;
 
       z-index: 1 !important;
-
       pointer-events: none !important;
     }
 
@@ -91,20 +112,14 @@
 
     .hero .tx {
       position: relative !important;
-
       z-index: 3 !important;
     }
 
-
-    /*
-       Die alten drei Stuhl-Bilder werden ausgeblendet,
-       weil das Video jetzt den kompletten Hero bildet.
-    */
-
+    /* Die alten drei Stuhl-Bilder werden ausgeblendet,
+       weil das Video jetzt den kompletten Hero bildet. */
     .hero .trio {
       display: none !important;
     }
-
 
 
     /* =====================================================
@@ -114,7 +129,6 @@
     @media (max-width: 700px) {
 
       .hero-video {
-
         width: 125% !important;
         height: 125% !important;
 
@@ -122,7 +136,6 @@
         top: -12.5% !important;
 
         object-position: center 40% !important;
-
       }
 
     }
@@ -139,19 +152,10 @@
 
 
   <!-- =====================================================
-       HERO
-       VIDEO IST HIER DER HINTERGRUND
+       HERO (Video ist der Hintergrund)
        ===================================================== -->
 
-  <div
-    class="hero"
-    data-bg="hero:0"
-  >
-
-
-    <!-- =================================================
-         VIDEO
-         ================================================= -->
+  <div class="hero" data-bg="hero:0">
 
     <video
       class="hero-video"
@@ -161,82 +165,37 @@
       playsinline
       preload="auto"
     >
-
-      <source
-        src="assets/adironduck.mp4"
-        type="video/mp4"
-      >
-
+      <source src="assets/adironduck.mp4" type="video/mp4">
       Dein Browser unterstützt keine HTML5-Videos.
-
     </video>
 
-
-    <!-- =================================================
-         LEICHTE ABDUNKLUNG
-         ================================================= -->
-
+    <!-- Leichte Abdunklung -->
     <div class="hero-video-overlay"></div>
 
-
-
-    <!-- =================================================
-         HERO TEXT
-         ================================================= -->
-
+    <!-- Hero-Text -->
     <div class="tx">
-
 
       <p>
         Entdecken Sie die besten Adirondack-Stühle
         für Ihren Garten oder Ihre Terrasse.
       </p>
 
-
       <h1>
         Exklusive Kollektion für jeden Geschmack
       </h1>
 
-
-      <a
-        class="btn"
-        href="shop.html"
-      >
+      <a class="btn" href="shop.html">
         Jetzt entdecken
       </a>
 
-
     </div>
 
-
-
-    <!-- =================================================
-         URSPRÜNGLICHE STÜHLE
-
-         Bleiben im HTML erhalten, werden aber
-         ausgeblendet, weil das Video jetzt den
-         Hintergrund bildet.
-         ================================================= -->
-
+    <!-- Ursprüngliche Stühle: bleiben im HTML erhalten, werden aber ausgeblendet -->
     <div class="trio">
-
-      <img
-        data-chair="nordic:.5"
-        alt=""
-      >
-
-      <img
-        data-chair="navy:.15"
-        alt=""
-      >
-
-      <img
-        data-chair="teak:-.3"
-        alt=""
-      >
-
+      <img data-chair="nordic:.5" alt="">
+      <img data-chair="navy:.15" alt="">
+      <img data-chair="teak:-.3" alt="">
     </div>
-
 
   </div>
 
@@ -248,128 +207,47 @@
 
   <section class="sec">
 
-
     <h2>
-
       Entdecken Sie mehr
-
-      <em>
-        Qualität und Komfort.
-      </em>
-
+      <em>Qualität und Komfort.</em>
     </h2>
-
-
 
     <div class="cards3">
 
-
-      <!-- =================================================
-           HANDGEFERTIGT
-           ================================================= -->
-
       <article class="fc">
-
-
-        <div
-          class="im"
-          data-bg="f1:2"
-        >
-
-          <img
-            data-chair="signal:.9"
-            alt=""
-          >
-
+        <div class="im" data-bg="f1:2">
+          <img data-chair="signal:.9" alt="Handgefertigter Adirondack-Stuhl in Signalfarbe">
         </div>
-
-
-        <h3>
-          Handgefertigt
-        </h3>
-
-
+        <h3>Handgefertigt</h3>
         <p>
           Jede Latte wird einzeln geschliffen und verleimt.
           Es gibt keinen Lagerbestand, nur Ihre Bestellung.
         </p>
-
-
       </article>
 
-
-
-      <!-- =================================================
-           WETTERFEST
-           ================================================= -->
-
       <article class="fc">
-
-
-        <div
-          class="im"
-          data-bg="f2:1"
-        >
-
-          <img
-            data-chair="navy:1.6"
-            alt=""
-          >
-
+        <div class="im" data-bg="f2:1">
+          <img data-chair="navy:1.6" alt="Wetterfester Adirondack-Stuhl in Marineblau">
         </div>
-
-
-        <h3>
-          Wetterfest
-        </h3>
-
-
+        <h3>Wetterfest</h3>
         <p>
           Lackiert oder geölt für Sonne, Regen und Frost.
           Die Farbe bleibt über Jahre stabil.
         </p>
-
-
       </article>
 
-
-
-      <!-- =================================================
-           10 JAHRE GARANTIE
-           ================================================= -->
-
       <article class="fc">
-
-
-        <div
-          class="im"
-          data-bg="f3:0"
-        >
-
-          <img
-            data-chair="teak:3.4"
-            alt=""
-          >
-
+        <div class="im" data-bg="f3:0">
+          <img data-chair="teak:3.4" alt="Adirondack-Stuhl aus Teakholz mit 10 Jahren Garantie">
         </div>
-
-
-        <h3>
-          10 Jahre Garantie
-        </h3>
-
-
+        <h3>10 Jahre Garantie</h3>
         <p>
           Wir stehen zu unserer Verarbeitung,
           auf Konstruktion und Oberfläche.
         </p>
-
-
       </article>
 
-
     </div>
-
 
   </section>
 
@@ -379,26 +257,14 @@
        ADIRONDACK IM ALLTAG
        ===================================================== -->
 
-  <section
-    class="sec"
-    style="padding-top:0"
-  >
-
+  <section class="sec" style="padding-top:0">
 
     <h2>
-
       Adirondack
-
-      <em>
-        im Alltag
-      </em>
-
+      <em>im Alltag</em>
     </h2>
 
-
-
     <div class="mos">
-
 
       <img
         class="w"
@@ -406,28 +272,23 @@
         alt="Zwei Adirondack-Stühle mit grünen Kissen auf einem Steg bei Sonnenuntergang"
       >
 
-
       <img
         class="t"
         src="images/gal-1.jpg"
         alt="Adirondack-Stuhl aus Holz zwischen Hortensien"
       >
 
-
       <img
         src="images/gal-2.jpg"
         alt="Zwei Adirondack-Stühle an der Feuerstelle am Abend"
       >
-
 
       <img
         src="images/gal-4.jpg"
         alt="Adirondack-Stuhl am Seestrand"
       >
 
-
     </div>
-
 
   </section>
 
@@ -437,28 +298,14 @@
        BELIEBTE MODELLE
        ===================================================== -->
 
-  <section
-    class="sec"
-    style="padding-top:0"
-  >
-
+  <section class="sec" style="padding-top:0">
 
     <h2>
-
       Beliebte
-
-      <em>
-        Modelle
-      </em>
-
+      <em>Modelle</em>
     </h2>
 
-
-    <div
-      class="cards"
-      id="pop"
-    ></div>
-
+    <div class="cards" id="pop"></div>
 
   </section>
 
@@ -468,36 +315,24 @@
        KONFIGURATOR
        ===================================================== -->
 
-  <section
-    class="cta"
-    data-bg="cta:1"
-  >
-
+  <section class="cta" data-bg="cta:1">
 
     <div>
-
 
       <h2>
         Gestalten Sie Ihren eigenen Adirondack
       </h2>
-
 
       <p>
         Farbe pro Bauteil, Material, Oberfläche und Kissen.
         Im 3D-Konfigurator sehen Sie das Ergebnis sofort.
       </p>
 
-
-      <a
-        class="btn"
-        href="konfigurator.html"
-      >
+      <a class="btn" href="konfigurator.html">
         Zum Konfigurator
       </a>
 
-
     </div>
-
 
   </section>
 
@@ -512,12 +347,9 @@
 
 <script src="assets/common.js"></script>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-
 <script src="assets/chair3d.js"></script>
-
 
 
 <script>
@@ -530,6 +362,42 @@
 </script>
 
 
+<!-- =====================================================
+     LOGO-ICON IM HEADER
+     Setzt das Icon links vor den Namen, sobald der Header
+     von common.js erzeugt wurde.
+     ===================================================== -->
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    var logo = document.querySelector('.logo');
+
+    if (!logo || logo.querySelector('.logo-icon')) return;
+
+    // Vorhandenen Namen ("ADIRON" + "DUCK") in einen Wrapper packen
+    var text = document.createElement('span');
+    text.className = 'lt';
+
+    while (logo.firstChild) {
+      text.appendChild(logo.firstChild);
+    }
+
+    var icon = new Image();
+    icon.src = 'assets/logo-icon.svg';
+    icon.alt = '';
+    icon.width = 46;
+    icon.height = 46;
+    icon.className = 'logo-icon';
+
+    logo.appendChild(icon);
+    logo.appendChild(text);
+
+  });
+
+</script>
+
 
 <!-- =====================================================
      VIDEO-KONTROLLE
@@ -537,36 +405,17 @@
 
 <script>
 
-  const video =
-    document.querySelector('.hero-video');
-
+  const video = document.querySelector('.hero-video');
 
   if (video) {
 
+    video.addEventListener('loadeddata', function () {
+      console.log('Adironduck-Video wurde geladen.');
+    });
 
-    video.addEventListener(
-      'loadeddata',
-      function () {
-
-        console.log(
-          'Adironduck-Video wurde geladen.'
-        );
-
-      }
-    );
-
-
-    video.addEventListener(
-      'error',
-      function () {
-
-        console.error(
-          'FEHLER: adironduck.mp4 konnte nicht geladen werden.'
-        );
-
-      }
-    );
-
+    video.addEventListener('error', function () {
+      console.error('FEHLER: adironduck.mp4 konnte nicht geladen werden.');
+    });
 
   }
 
