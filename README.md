@@ -13,3 +13,7 @@ This project was created as part of an academical exercise. The website features
 * **Learn Project:** This website is strictly intended for educational and learning purposes and serves no commercial intent.
 * **Copyright:** All brand names, logos, and materials used belong to their respective owners. If any content infringes upon third-party rights, please notify us, and it will be removed promptly.
 * **Limitation of Liability:** No liability is assumed for the completeness, accuracy, or timeliness of the content provided.
+
+
+https://github.com/user-attachments/assets/a1078fa1-8759-4124-ac5a-9d542a031785
+
