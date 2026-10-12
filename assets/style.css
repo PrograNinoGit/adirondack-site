@@ -143,4 +143,68 @@ footer a{margin:0 12px;color:#fff}
     transform:translateY(-2px);
     box-shadow:0 6px 14px rgba(58,34,18,.2);
   }
+}/* checkout.css
+   Ergänzungen für kasse.html und agb.html.
+   Baut auf style.css auf (Variablen --navy, --mu, --soft, --mint, --line, Klassen .sec, .ph, .btn, .pn, .row, .tot). */
+
+[hidden]{display:none!important}
+
+/* Layout: Formular links, Zusammenfassung rechts */
+.co{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:start}
+.co .pn legend,.co .pn h3{font-size:21px;margin-bottom:14px}
+.co fieldset{border:0;padding:0;min-width:0}
+
+/* Hinweisbox */
+.demo-note{background:var(--mint);border-radius:16px;padding:12px 18px;font-size:14px;margin-bottom:26px}
+
+/* Formularfelder (gleiche Optik wie .fm im Kontaktformular) */
+.f{display:flex;flex-direction:column;margin-bottom:12px}
+.f label{font-size:14px;margin-bottom:4px}
+.f input,.f select{width:100%;padding:13px 18px;border:1px solid var(--line);border-radius:16px;font:inherit;background:#fff;color:var(--navy)}
+.f.bad input,.f.bad select{border-color:#b3261e}
+.f .err{color:#b3261e;font-size:13px;min-height:18px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* Auswahlkarten für Versand und Zahlung */
+.opt{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:10px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--navy);background:#fff8ee}
+.opt:focus-within{outline:2px solid var(--navy);outline-offset:2px}
+.opt input{accent-color:var(--navy);width:18px;height:18px}
+.opt .t{flex:1}
+.opt small{display:block;color:var(--mu);font-size:12.5px}
+.opt b{font-weight:600}
+.cardbox{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.small{font-size:13px;color:var(--mu)}
+
+/* AGB-Checkbox */
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:14.5px}
+.chk input{accent-color:var(--navy);width:18px;height:18px;margin-top:4px}
+.chk a{text-decoration:underline}
+
+/* Zusammenfassung */
+.co-sum{position:sticky;top:104px;background:#fff;border-radius:26px;box-shadow:0 10px 40px rgba(58,34,18,.09);padding:26px 28px}
+.co-sum h3{font-size:22px;margin-bottom:10px}
+.co-item{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.co-item img{width:56px;height:56px;object-fit:contain;background:var(--soft);border-radius:12px}
+.co-item small{display:block;color:var(--mu);font-size:12.5px}
+.co-sum .row{margin:8px 0 0;font-size:15px}
+.co-sum .btn{width:100%;margin-top:6px}
+
+/* Bestätigung */
+.done{text-align:center}
+.done .badge{width:76px;height:76px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:36px;margin:0 auto 18px}
+.done .box{background:#fff;border-radius:26px;box-shadow:0 10px 40px rgba(58,34,18,.09);padding:28px 30px;margin:26px auto;max-width:620px;text-align:left}
+.done .nr{font-size:24px;font-weight:700;color:#b5581f}
+
+/* AGB-Seite */
+.agb{max-width:760px}
+.agb h3{font-size:20px;margin:30px 0 6px}
+.agb p{color:var(--mu);margin-bottom:8px}
+.agb .star{background:#fff;border:2px solid #c4682a;border-radius:26px;padding:6px 28px 22px;margin:34px 0}
+.agb .star h3{color:#b5581f}
+
+@media(max-width:900px){
+  .co{grid-template-columns:1fr}
+  .co-sum{position:static}
+  .f2{grid-template-columns:1fr}
 }
