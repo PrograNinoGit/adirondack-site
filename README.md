@@ -3,7 +3,7 @@
 A modern website presenting the Adironduck project.
 
 ## 📝 About the Project
-This project was created as part of an academical exercise. The website features content, images, and page structures related to the Adirondack topic.
+This project was created as part of an academical exercise. The website features content, images, and page structures related to the Adironduck topic.
 
 ## 🛠️ Technologies
 * HTML5
