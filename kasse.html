@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kasse | ADIRONDUCK</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="kasse">
+<main>
+<div class="ph mint"><div><h1>Zur Kasse</h1><p style="color:var(--mu);margin-top:10px">Noch ein paar Angaben, dann ist Ihre Bestellung komplett.</p></div></div>
+
+<section class="sec" id="checkout" style="max-width:1100px">
+  <div class="demo-note"><b>Demo-Shop:</b> Es wird nichts abgebucht und nichts verschickt. Ihre Eingaben werden nicht gespeichert. Bitte keine echten Kartendaten eintragen.</div>
+
+  <div id="empty" class="empty" hidden>Ihr Warenkorb ist leer.<br><br><a class="btn" href="shop.html">Zum Shop</a></div>
+
+  <form id="form" class="co" novalidate>
+    <div>
+      <div class="pn">
+        <h3>Kontakt</h3>
+        <div class="f"><label for="email">E-Mail</label><input id="email" type="email" autocomplete="email"><span class="err"></span></div>
+      </div>
+
+      <div class="pn">
+        <h3>Lieferadresse</h3>
+        <div class="f2">
+          <div class="f"><label for="vorname">Vorname</label><input id="vorname" autocomplete="given-name"><span class="err"></span></div>
+          <div class="f"><label for="nachname">Nachname</label><input id="nachname" autocomplete="family-name"><span class="err"></span></div>
+        </div>
+        <div class="f"><label for="strasse">Straße und Hausnummer</label><input id="strasse" autocomplete="street-address"><span class="err"></span></div>
+        <div class="f2">
+          <div class="f"><label for="plz">Postleitzahl</label><input id="plz" inputmode="numeric" maxlength="5" autocomplete="postal-code"><span class="err"></span></div>
+          <div class="f"><label for="ort">Ort</label><input id="ort" autocomplete="address-level2"><span class="err"></span></div>
+        </div>
+        <div class="f"><label for="land">Land</label><select id="land"><option>Deutschland</option><option>Österreich</option><option>Schweiz</option></select></div>
+      </div>
+
+      <div class="pn">
+        <h3>Versandart</h3>
+        <label class="opt"><input type="radio" name="versand" value="standard" checked><span class="t">Standardversand<small>3 bis 5 Werktage</small></span><b>kostenlos</b></label>
+        <label class="opt"><input type="radio" name="versand" value="express"><span class="t">Expressversand<small>1 bis 2 Werktage</small></span><b>12,90 €</b></label>
+        <label class="opt"><input type="radio" name="versand" value="abholung"><span class="t">Selbstabholung<small>In der Werkstatt, nach Terminabsprache</small></span><b>kostenlos</b></label>
+      </div>
+
+      <div class="pn">
+        <h3>Zahlungsart</h3>
+        <label class="opt"><input type="radio" name="zahlung" value="karte" checked><span class="t">Kreditkarte<small>Visa, Mastercard</small></span></label>
+        <label class="opt"><input type="radio" name="zahlung" value="paypal"><span class="t">PayPal</span></label>
+        <label class="opt"><input type="radio" name="zahlung" value="rechnung"><span class="t">Kauf auf Rechnung<small>Zahlbar innerhalb von 14 Tagen</small></span></label>
+        <label class="opt"><input type="radio" name="zahlung" value="vorkasse"><span class="t">Vorkasse<small>Überweisung vor dem Versand</small></span></label>
+        <div id="cardBox" class="cardbox">
+          <div class="f"><label for="kname">Name auf der Karte</label><input id="kname" autocomplete="off"><span class="err"></span></div>
+          <div class="f"><label for="knr">Kartennummer</label><input id="knr" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="off"><span class="err"></span></div>
+          <div class="f2">
+            <div class="f"><label for="kexp">Gültig bis (MM/JJ)</label><input id="kexp" inputmode="numeric" placeholder="MM/JJ" maxlength="5" autocomplete="off"><span class="err"></span></div>
+            <div class="f"><label for="kcvc">Prüfziffer</label><input id="kcvc" inputmode="numeric" maxlength="4" autocomplete="off"><span class="err"></span></div>
+          </div>
+          <p class="small">Demo-Feld: Es wird nichts geprüft oder übertragen.</p>
+        </div>
+      </div>
+
+      <div class="pn">
+        <label class="chk"><input type="checkbox" id="agb"><span>Ich habe die <a href="agb.html" target="_blank" rel="noopener">Allgemeinen Geschäftsbedingungen</a> gelesen und akzeptiere sie.</span></label>
+        <span class="err" id="agbErr" style="display:block;color:#b3261e;font-size:13px;min-height:18px;margin-top:6px"></span>
+      </div>
+    </div>
+
+    <aside class="co-sum" aria-label="Bestellübersicht">
+      <h3>Ihre Bestellung</h3>
+      <div id="items"></div>
+      <div class="row"><span>Zwischensumme</span><span id="sSub"></span></div>
+      <div class="row"><span>Versand</span><span id="sShip"></span></div>
+      <div class="row"><span>Enthaltene MwSt. (19 %)</span><span id="sVat"></span></div>
+      <div class="tot"><span>Gesamt</span><b id="sTotal"></b></div>
+      <button class="btn" type="submit">Jetzt kaufen</button>
+      <p class="small" style="margin-top:12px;text-align:center">Demo: Es wird nur eine Test-Bestellung angezeigt.</p>
+    </aside>
+  </form>
+</section>
+
+<section class="sec done" id="done" hidden style="max-width:760px">
+  <div class="badge" aria-hidden="true">✓</div>
+  <h2 tabindex="-1" id="doneTitle">Danke für Ihre Bestellung!</h2>
+  <p class="lead" id="doneMail" style="margin:0 auto 10px"></p>
+  <div class="box">
+    <p class="small">Bestellnummer</p>
+    <p class="nr" id="orderNr"></p>
+    <div id="doneItems" style="margin-top:12px"></div>
+    <div class="tot"><span>Gesamt</span><b id="doneTotal"></b></div>
+    <p class="small" id="doneInfo"></p>
+  </div>
+  <p class="small">Das war eine Demo-Bestellung. Es wurde nichts bezahlt und nichts verschickt.</p>
+  <p style="margin-top:20px"><a class="btn" href="shop.html">Weiter stöbern</a></p>
+</section>
+</main>
+
+<script src="assets/common.js"></script>
+<script>
+(function(){
+  var SHIP={standard:0,express:12.9,abholung:0};
+  var g=function(id){return document.getElementById(id)};
+  var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+
+  function sub(){return CART.reduce(function(a,i){return a+calc(i.cfg)*i.qty},0)}
+  function shipping(){return SHIP[document.querySelector('input[name=versand]:checked').value]}
+  function itemsHtml(){
+    return CART.map(function(i){
+      return '<div class="co-item"><img alt="" src="'+(i.thumb||'')+'"><div><b>'+i.name+'</b> × '+i.qty+'<small>'+info(i.cfg)+'</small></div><b>'+eur(calc(i.cfg)*i.qty)+'</b></div>';
+    }).join('');
+  }
+  function render(){
+    if(!CART.length){g('form').hidden=true;g('empty').hidden=false;return}
+    var s=sub(),sh=shipping(),t=s+sh;
+    g('items').innerHTML=itemsHtml();
+    g('sSub').textContent=eur(s);
+    g('sShip').textContent=sh===0?'kostenlos':eur(sh);
+    g('sVat').textContent=eur(t-t/1.19);
+    g('sTotal').textContent=eur(t);
+  }
+  render();
+
+  document.querySelectorAll('input[name=versand]').forEach(function(r){r.addEventListener('change',render)});
+  function togglePay(){g('cardBox').hidden=document.querySelector('input[name=zahlung]:checked').value!=='karte'}
+  document.querySelectorAll('input[name=zahlung]').forEach(function(r){r.addEventListener('change',togglePay)});
+  togglePay();
+
+  g('knr').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,16).replace(/(.{4})/g,'$1 ').trim()});
+  g('kexp').addEventListener('input',function(){var d=this.value.replace(/\D/g,'').slice(0,4);this.value=d.length>2?d.slice(0,2)+'/'+d.slice(2):d});
+  g('kcvc').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,4)});
+  g('plz').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,5)});
+
+  function check(id,test,msg,st){
+    var el=g(id),f=el.closest('.f');
+    var bad=!test(el.value.trim());
+    f.classList.toggle('bad',bad);
+    f.querySelector('.err').textContent=bad?msg:'';
+    if(bad){st.ok=false;if(!st.first)st.first=el}
+  }
+  function validate(){
+    var st={ok:true,first:null};
+    check('email',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},'Bitte eine gültige E-Mail-Adresse eingeben.',st);
+    check('vorname',function(v){return v.length>0},'Bitte den Vornamen eingeben.',st);
+    check('nachname',function(v){return v.length>0},'Bitte den Nachnamen eingeben.',st);
+    check('strasse',function(v){return v.length>3},'Bitte Straße und Hausnummer eingeben.',st);
+    check('plz',function(v){return /^\d{5}$/.test(v)},'Bitte eine 5-stellige Postleitzahl eingeben.',st);
+    check('ort',function(v){return v.length>1},'Bitte den Ort eingeben.',st);
+    if(document.querySelector('input[name=zahlung]:checked').value==='karte'){
+      check('kname',function(v){return v.length>1},'Bitte den Namen auf der Karte eingeben.',st);
+      check('knr',function(v){return v.replace(/\s/g,'').length===16},'Bitte 16 Ziffern eingeben.',st);
+      check('kexp',function(v){var m=/^(\d{2})\/(\d{2})$/.exec(v);return !!m&&+m[1]>=1&&+m[1]<=12},'Bitte im Format MM/JJ eingeben.',st);
+      check('kcvc',function(v){return /^\d{3,4}$/.test(v)},'Bitte 3 oder 4 Ziffern eingeben.',st);
+    }
+    if(!g('agb').checked){g('agbErr').textContent='Bitte akzeptieren Sie die AGB, um die Bestellung abzuschließen.';st.ok=false;if(!st.first)st.first=g('agb')}
+    else g('agbErr').textContent='';
+    if(st.first)st.first.focus();
+    return st.ok;
+  }
+
+  g('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!CART.length||!validate())return;
+    var t=sub()+shipping();
+    var pay={karte:'Kreditkarte',paypal:'PayPal',rechnung:'Rechnung',vorkasse:'Vorkasse'}[document.querySelector('input[name=zahlung]:checked').value];
+    var abholung=document.querySelector('input[name=versand]:checked').value==='abholung';
+    g('orderNr').textContent='AD-'+new Date().getFullYear()+'-'+Math.floor(10000+Math.random()*90000);
+    g('doneMail').textContent='Eine Bestätigung wäre jetzt an '+g('email').value.trim()+' unterwegs.';
+    g('doneItems').innerHTML=itemsHtml();
+    g('doneTotal').textContent=eur(t);
+    g('doneInfo').textContent='Zahlungsart: '+pay+(abholung?' · Selbstabholung in der Werkstatt':' · Lieferung an '+g('vorname').value.trim()+' '+g('nachname').value.trim()+', '+g('strasse').value.trim()+', '+g('plz').value.trim()+' '+g('ort').value.trim());
+    CART=[];saveCart();
+    g('checkout').hidden=true;g('done').hidden=false;
+    window.scrollTo({top:0,behavior:'smooth'});
+    g('doneTitle').focus();
+  });
+})();
+</script>
+</body></html>

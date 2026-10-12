@@ -15,8 +15,7 @@ function draw(){
   if(!CART.length){l.innerHTML='<div class="empty">Ihr Warenkorb ist leer.<br><br><a class="btn" href="shop.html">Zum Shop</a></div>';s.innerHTML='';return}
   l.innerHTML=CART.map((i,n)=>`<div class="ci"><img alt="" src="${i.thumb||''}"><div><b>${i.name}</b><small>${info(i.cfg)}</small><small>${eur(calc(i.cfg))} pro Stück</small></div><div class="q"><button data-q="${n}" data-d="-1" aria-label="Weniger">−</button>${i.qty}<button data-q="${n}" data-d="1" aria-label="Mehr">+</button></div><div style="text-align:right"><b>${eur(calc(i.cfg)*i.qty)}</b><br><button class="x" data-rm="${n}" aria-label="Entfernen">✕</button></div></div>`).join('');
   const t=CART.reduce((a,i)=>a+calc(i.cfg)*i.qty,0);
-  s.innerHTML=`<div class="sum"><div class="row" style="margin:0"><span>Zwischensumme</span><span>${eur(t)}</span></div><div class="row" style="margin:6px 0"><span>Lieferung</span><span>kostenlos</span></div><div class="tot"><span>Gesamt</span><b>${eur(t)}</b></div><button class="btn" id="co" style="width:100%">Zur Kasse</button><button class="btn l" id="clr" style="width:100%;margin-top:10px">Warenkorb leeren</button></div>`;
-  $('#co').onclick=()=>{CART=[];saveCart();draw();toast('Danke! Das ist ein Demo-Shop, es wurde nichts bestellt.')};
+  s.innerHTML=`<div class="sum"><div class="row" style="margin:0"><span>Zwischensumme</span><span>${eur(t)}</span></div><div class="row" style="margin:6px 0"><span>Lieferung</span><span>kostenlos</span></div><div class="tot"><span>Gesamt</span><b>${eur(t)}</b></div><a class="btn" id="co" href="kasse.html" style="width:100%;text-align:center">Zur Kasse</a><button class="btn l" id="clr" style="width:100%;margin-top:10px">Warenkorb leeren</button></div>`;
   $('#clr').onclick=()=>{CART=[];saveCart();draw()};
 }
 $('#list').onclick=e=>{
