@@ -15,5 +15,10 @@ This project was created as part of an academical exercise. The website features
 * **Limitation of Liability:** No liability is assumed for the completeness, accuracy, or timeliness of the content provided.
 
 
-https://github.com/user-attachments/assets/a1078fa1-8759-4124-ac5a-9d542a031785
+
+
+
+
+
+
 
