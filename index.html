@@ -1,426 +1,83 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <title>ADIRONDUCK | Custom Made Outdoor Luxury</title>
-  <meta name="description" content="ADIRONDUCK: Handgefertigte Adirondack-Stühle nach Maß. Farbe, Material und Oberfläche im 3D-Konfigurator selbst gestalten.">
-  <meta name="theme-color" content="#3a2212">
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
-
-  <!-- Vorschau beim Teilen -->
-  <meta property="og:title" content="ADIRONDUCK | Custom Made Outdoor Luxury">
-  <meta property="og:description" content="Handgefertigte Adirondack-Stühle nach Maß.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/logo-icon-512.png">
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="assets/style.css">
-
-
-  <style>
-
-    /* =====================================================
-       LOGO: Icon neben dem Namen
-       (.logo span aus style.css wird für .lt überschrieben)
-       ===================================================== */
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo .logo-icon {
-      width: 46px;
-      height: 46px;
-      flex-shrink: 0;
-    }
-
-    .logo .lt {
-      display: block;
-      padding-left: 0;
-    }
-
-    .logo .lt span {
-      display: block;
-      padding-left: 28px;
-    }
-
-
-    /* =====================================================
-       HERO VIDEO ALS HINTERGRUND
-       ===================================================== */
-
-    .hero {
-      position: relative !important;
-      overflow: hidden !important;
-    }
-
-    /* Video liegt ganz hinten im Hero und überdeckt den bisherigen Hintergrund. */
-    .hero-video {
-      position: absolute !important;
-
-      /* Etwas größer als der Hero, die Außenbereiche werden abgeschnitten. */
-      width: 115% !important;
-      height: 115% !important;
-
-      left: -7.5% !important;
-      top: -7.5% !important;
-
-      max-width: none !important;
-
-      object-fit: cover !important;
-
-      /* Verschiebung nach oben: der untere Bereich mit dem
-         Luna-AI-Watermark wird stärker abgeschnitten. */
-      object-position: center 42% !important;
-
-      z-index: 0 !important;
-      display: block !important;
-      pointer-events: none !important;
-    }
-
-
-    /* =====================================================
-       DUNKLE VIDEO-EBENE
-       ===================================================== */
-
-    .hero-video-overlay {
-      position: absolute !important;
-      inset: 0 !important;
-
-      /* Nur leicht abdunkeln, damit der Text gut lesbar bleibt. */
-      background: rgba(0, 0, 0, 0.16) !important;
-
-      z-index: 1 !important;
-      pointer-events: none !important;
-    }
-
-
-    /* =====================================================
-       HERO-INHALT ÜBER DEM VIDEO
-       ===================================================== */
-
-    .hero .tx {
-      position: relative !important;
-      z-index: 3 !important;
-    }
-
-    /* Die alten drei Stuhl-Bilder werden ausgeblendet,
-       weil das Video jetzt den kompletten Hero bildet. */
-    .hero .trio {
-      display: none !important;
-    }
-
-
-    /* =====================================================
-       VIDEO AUF KLEINEREN BILDSCHIRMEN
-       ===================================================== */
-
-    @media (max-width: 700px) {
-
-      .hero-video {
-        width: 125% !important;
-        height: 125% !important;
-
-        left: -12.5% !important;
-        top: -12.5% !important;
-
-        object-position: center 40% !important;
-      }
-
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Web & Software Development</title>
+<meta name="description" content="Portfolio von Nino: Web- und Software-Development mit HTML, CSS, JavaScript, Three.js und Java.">
+<meta name="theme-color" content="#0d0f0e">
+<link rel="icon" href="assets/portfolio-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/portfolio-favicon-32.png" sizes="32x32" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
 </head>
-
-
-<body data-page="index">
-
-
+<body>
+<header class="nav">
+<a class="logo" href="#"><img src="assets/portfolio-logo.svg" alt="" width="34" height="34"><span>PORTFOLIO</span></a>
+<nav><a href="#projekte">Projekte</a><a href="#skills">Skills</a><a href="#ueber-mich">Über mich</a></nav>
+</header>
 <main>
+<section class="hero">
+<div class="hero-inner">
+<p class="eyebrow">WEB & SOFTWARE DEVELOPMENT</p>
+<h1>Meine Projekte.<br><span>Mein Weg in die IT.</span></h1>
+<p class="intro">Ich entwickle eigene Projekte, lerne neue Technologien und setze meine Ideen praktisch in Code um.</p>
+<a class="button" href="#projekte">Projekte ansehen</a>
+</div>
+</section>
 
+<section id="projekte" class="section">
+<p class="eyebrow">AUSGEWÄHLTE PROJEKTE</p>
+<h2>Zwei Projekte, die zeigen, was ich kann.</h2>
+<div class="projects">
+<article class="project">
+<div class="project-number"><img src="assets/logo-icon.svg" alt="Adironduck Logo" width="64" height="64"></div>
+<div class="project-content">
+<p class="tag">WEB DEVELOPMENT</p>
+<h3>Adirondack Outdoor Website</h3>
+<p>Moderne Produktwebsite für eine fiktive Outdoor-Marke. Die Seite verbindet Gestaltung, responsive Layouts, Produktdarstellung, Video, Galerie und einen interaktiven 3D-Konfigurator.</p>
+<div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Three.js</span></div>
+<a class="text-link" href="https://prograninogit.github.io/adirondack-site/" target="_blank" rel="noopener">Live-Demo →</a>
+</div>
+</article>
 
-  <!-- =====================================================
-       HERO (Video ist der Hintergrund)
-       ===================================================== -->
+<article class="project">
+<div class="project-number"><img src="assets/agario-icon.svg" alt="Agar.io Klon Icon" width="64" height="64"></div>
+<div class="project-content">
+<p class="tag">GAME DEVELOPMENT</p>
+<h3>Agar.io Clone</h3>
+<p>Eigenständiges Java-Spielprojekt nach dem Vorbild von Agar.io. Das Projekt arbeitet unter anderem mit objektorientierter Programmierung, Spielersteuerung, Bot-Gegnern, Rendering, Kollisionslogik und einem eigenen Game Loop.</p>
+<div class="tech"><span>Java</span><span>OOP</span><span>Swing / AWT</span><span>Eclipse</span></div>
+<a class="text-link" href="https://github.com/PrograNinoGit/Agar.io-KLon" target="_blank" rel="noopener">GitHub ansehen →</a>
+</div>
+</article>
+</div>
+</section>
 
-  <div class="hero" data-bg="hero:0">
+<section id="skills" class="section light">
+<p class="eyebrow">TECHNOLOGIEN</p>
+<h2>Was ich bisher praktisch eingesetzt habe.</h2>
+<div class="skills">
+<div><strong>HTML</strong><span>Struktur von Webseiten</span></div>
+<div><strong>CSS</strong><span>Layout & Gestaltung</span></div>
+<div><strong>JavaScript</strong><span>Interaktionen & Logik</span></div>
+<div><strong>Three.js</strong><span>3D im Browser</span></div>
+<div><strong>Java</strong><span>Software & Game Development</span></div>
+<div><strong>GitHub</strong><span>Code & Projekte</span></div>
+</div>
+</section>
 
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    >
-      <source src="assets/adironduck.mp4" type="video/mp4">
-      Dein Browser unterstützt keine HTML5-Videos.
-    </video>
+<section id="ueber-mich" class="section about">
+<p class="eyebrow">ÜBER MICH</p>
+<h2>Ich lerne am liebsten, indem ich Dinge selbst baue.</h2>
+<p>Meine bisherigen Projekte verbinden Webentwicklung und Softwareentwicklung. Dabei nutze ich moderne Werkzeuge und auch KI als Entwicklungsunterstützung. Wichtig ist mir, den entstandenen Code zu verstehen, zu testen und selbst weiterentwickeln zu können.</p>
+</section>
 
-    <!-- Leichte Abdunklung -->
-    <div class="hero-video-overlay"></div>
-
-    <!-- Hero-Text -->
-    <div class="tx">
-
-      <p>
-        Entdecken Sie die besten Adirondack-Stühle
-        für Ihren Garten oder Ihre Terrasse.
-      </p>
-
-      <h1>
-        Exklusive Kollektion für jeden Geschmack
-      </h1>
-
-      <a class="btn" href="shop.html">
-        Jetzt entdecken
-      </a>
-
-    </div>
-
-    <!-- Ursprüngliche Stühle: bleiben im HTML erhalten, werden aber ausgeblendet -->
-    <div class="trio">
-      <img data-chair="nordic:.5" alt="">
-      <img data-chair="navy:.15" alt="">
-      <img data-chair="teak:-.3" alt="">
-    </div>
-
-  </div>
-
-
-
-  <!-- =====================================================
-       QUALITÄT & KOMFORT
-       ===================================================== -->
-
-  <section class="sec">
-
-    <h2>
-      Entdecken Sie mehr
-      <em>Qualität und Komfort.</em>
-    </h2>
-
-    <div class="cards3">
-
-      <article class="fc">
-        <div class="im" data-bg="f1:2">
-          <img data-chair="signal:.9" alt="Handgefertigter Adirondack-Stuhl in Signalfarbe">
-        </div>
-        <h3>Handgefertigt</h3>
-        <p>
-          Jede Latte wird einzeln geschliffen und verleimt.
-          Es gibt keinen Lagerbestand, nur Ihre Bestellung.
-        </p>
-      </article>
-
-      <article class="fc">
-        <div class="im" data-bg="f2:1">
-          <img data-chair="navy:1.6" alt="Wetterfester Adirondack-Stuhl in Marineblau">
-        </div>
-        <h3>Wetterfest</h3>
-        <p>
-          Lackiert oder geölt für Sonne, Regen und Frost.
-          Die Farbe bleibt über Jahre stabil.
-        </p>
-      </article>
-
-      <article class="fc">
-        <div class="im" data-bg="f3:0">
-          <img data-chair="teak:3.4" alt="Adirondack-Stuhl aus Teakholz mit 10 Jahren Garantie">
-        </div>
-        <h3>10 Jahre Garantie</h3>
-        <p>
-          Wir stehen zu unserer Verarbeitung,
-          auf Konstruktion und Oberfläche.
-        </p>
-      </article>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       ADIRONDACK IM ALLTAG
-       ===================================================== -->
-
-  <section class="sec" style="padding-top:0">
-
-    <h2>
-      Adirondack
-      <em>im Alltag</em>
-    </h2>
-
-    <div class="mos">
-
-      <img
-        class="w"
-        src="images/gal-3.jpg"
-        alt="Zwei Adirondack-Stühle mit grünen Kissen auf einem Steg bei Sonnenuntergang"
-      >
-
-      <img
-        class="t"
-        src="images/gal-1.jpg"
-        alt="Adirondack-Stuhl aus Holz zwischen Hortensien"
-      >
-
-      <img
-        src="images/gal-2.jpg"
-        alt="Zwei Adirondack-Stühle an der Feuerstelle am Abend"
-      >
-
-      <img
-        src="images/gal-4.jpg"
-        alt="Adirondack-Stuhl am Seestrand"
-      >
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       BELIEBTE MODELLE
-       ===================================================== -->
-
-  <section class="sec" style="padding-top:0">
-
-    <h2>
-      Beliebte
-      <em>Modelle</em>
-    </h2>
-
-    <div class="cards" id="pop"></div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       KONFIGURATOR
-       ===================================================== -->
-
-  <section class="cta" data-bg="cta:1">
-
-    <div>
-
-      <h2>
-        Gestalten Sie Ihren eigenen Adirondack
-      </h2>
-
-      <p>
-        Farbe pro Bauteil, Material, Oberfläche und Kissen.
-        Im 3D-Konfigurator sehen Sie das Ergebnis sofort.
-      </p>
-
-      <a class="btn" href="konfigurator.html">
-        Zum Konfigurator
-      </a>
-
-    </div>
-
-  </section>
-
-
+<section class="contact">
+<p class="eyebrow">KONTAKT</p>
+<h2>Interesse an meinen Projekten?</h2>
+<a class="button" href="https://github.com/PrograNinoGit/Agar.io-KLon" target="_blank" rel="noopener">Mein GitHub</a>
+</section>
 </main>
-
-
-
-<!-- =====================================================
-     SCRIPTS
-     ===================================================== -->
-
-<script src="assets/common.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-<script src="assets/chair3d.js"></script>
-
-
-<script>
-
-  renderProducts(
-    $('#pop'),
-    ['signal', 'navy', 'sig']
-  );
-
-</script>
-
-
-<!-- =====================================================
-     LOGO-ICON IM HEADER
-     Setzt das Icon links vor den Namen, sobald der Header
-     von common.js erzeugt wurde.
-     ===================================================== -->
-
-<script>
-
-  document.addEventListener('DOMContentLoaded', function () {
-
-    var logo = document.querySelector('.logo');
-
-    if (!logo || logo.querySelector('.logo-icon')) return;
-
-    // Vorhandenen Namen ("ADIRON" + "DUCK") in einen Wrapper packen
-    var text = document.createElement('span');
-    text.className = 'lt';
-
-    while (logo.firstChild) {
-      text.appendChild(logo.firstChild);
-    }
-
-    var icon = new Image();
-    icon.src = 'assets/logo-icon.svg';
-    icon.alt = '';
-    icon.width = 46;
-    icon.height = 46;
-    icon.className = 'logo-icon';
-
-    logo.appendChild(icon);
-    logo.appendChild(text);
-
-  });
-
-</script>
-
-
-<!-- =====================================================
-     VIDEO-KONTROLLE
-     ===================================================== -->
-
-<script>
-
-  const video = document.querySelector('.hero-video');
-
-  if (video) {
-
-    video.addEventListener('loadeddata', function () {
-      console.log('Adironduck-Video wurde geladen.');
-    });
-
-    video.addEventListener('error', function () {
-      console.error('FEHLER: adironduck.mp4 konnte nicht geladen werden.');
-    });
-
-  }
-
-</script>
-
-
+<footer><span>Portfolio</span><span>© 2026</span></footer>
 </body>
 </html>
