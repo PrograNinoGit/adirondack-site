@@ -16,6 +16,12 @@ This project was created as part of an academical exercise. The website features
 
 
 
+https://github.com/user-attachments/assets/d9c426d8-a894-42b8-aaad-d2257ecdf3e2
+
+
+
+
+
 
 
 
