@@ -8,6 +8,7 @@ This project was created as part of an academical exercise. The website features
 ## 🛠️ Technologies
 * HTML5
 * CSS3
+* JavaScript
 
 ## ⚖️ Legal Notice & Disclaimer
 * **Learn Project:** This website is strictly intended for educational and learning purposes and serves no commercial intent.
