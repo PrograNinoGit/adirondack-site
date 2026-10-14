@@ -1,4 +1,4 @@
-# Adironduck Site 🌲🪑
+# Adironduck Site 🪑
 
 A modern website presenting the Adironduck project.
 
